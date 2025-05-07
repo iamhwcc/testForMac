@@ -25,66 +25,45 @@ public class graph_test {
 
         try {
             // 添加DT顶点
-            g.addV("dt").property("id", "dt1").as("dt1").
-            addV("dt").property("id", "dt2").as("dt2").
-            addV("dt").property("id", "dt3").as("dt3").      
-            // 添加 Hive 顶点
-            addV("hive").property("id", "hive1").as("hive1").
-            addV("hive").property("id", "hive2").as("hive2").
-            addV("hive").property("id", "hive3").as("hive3").
-            addV("hive").property("id", "hive4").as("hive4").
-            addV("hive").property("id", "hive5").as("hive5").
-            addV("hive").property("id", "hive6").as("hive6").
-            addV("hive").property("id", "hive7").as("hive7").
-            addV("hive").property("id", "hive8").as("hive8").
-            addV("hive").property("id", "hive9").as("hive9").
-            addV("hive").property("id", "hive10").as("hive10").
-            addV("hive").property("id", "hive11").as("hive11").
-            addV("hive").property("id", "hive12").as("hive12").
-            addV("hive").property("id", "hive13").as("hive13").
-            addV("hive").property("id", "hive14").as("hive14").
-            addV("hive").property("id", "hive15").as("hive15").
-            addV("hive").property("id", "hive16").as("hive16").
-            addV("hive").property("id", "hive17").as("hive17").
-            addV("hive").property("id", "hive18").as("hive18").
-            // 添加 Metric 顶点
-            addV("metric").property("id", "metric1").as("metric1").
-            addV("metric").property("id", "metric2").as("metric2").
-            addV("metric").property("id", "metric3").as("metric3").
-            addV("metric").property("id", "metric4").as("metric4").
-            addV("metric").property("id", "metric5").as("metric5").
-            // 添加边：路径1 (dt1 -> hive1 -> hive2 -> hive3 -> hive4 -> hive5 -> metric1)
-            addE("dt_2_hive").from("dt1").to("hive1").
-            addE("hive_2_hive").from("hive1").to("hive2").
-            addE("hive_2_hive").from("hive2").to("hive3").
-            addE("hive_2_hive").from("hive3").to("hive4").
-            addE("hive_2_hive").from("hive4").to("hive5").
-            addE("hive_2_metric").from("hive5").to("metric1").
-            // 添加边：路径2 (dt1 -> hive1 -> hive6 -> hive7 -> hive8 -> metric1)
-            addE("dt_2_hive").from("dt1").to("hive1").
-            addE("hive_2_hive").from("hive1").to("hive6").
-            addE("hive_2_hive").from("hive6").to("hive7").
-            addE("hive_2_hive").from("hive7").to("hive8").
-            addE("hive_2_metric").from("hive8").to("metric2").
-            // 添加边：路径3 (dt2 -> hive9 -> hive10 -> hive11 -> metric3)
-            addE("dt_2_hive").from("dt2").to("hive9").
-            addE("hive_2_hive").from("hive9").to("hive10").
-            addE("hive_2_hive").from("hive10").to("hive11").
-            addE("hive_2_metric").from("hive11").to("metric3").
-            // 添加边：路径3 (dt3 -> hive12 -> hive13 -> hive11 -> metric3)
-            addE("dt_2_hive").from("dt3").to("hive12").
-            addE("hive_2_hive").from("hive12").to("hive13").
-            addE("hive_2_hive").from("hive13").to("hive11").
-            addE("hive_2_metric").from("hive11").to("metric3").   
-            // 添加边：路径4 (dt3 -> hive12 -> hive13 -> hive14 -> hive15)
-            addE("dt_2_hive").from("dt3").to("hive12").
-            addE("hive_2_hive").from("hive12").to("hive13").
-            addE("hive_2_hive").from("hive13").to("hive14").
-            addE("hive_2_hive").from("hive14").to("hive15").    
-            // 添加边：路径5 (hive16 -> hive17 -> metric4)
-            addE("hive_2_hive").from("hive16").to("hive17").
-            addE("hive_2_metric").from("hive17").to("metric4").
-            iterate();
+            g.addV("dt").property("id", "dt1").as("dt1").addV("dt").property("id", "dt2").as("dt2").addV("dt")
+                    .property("id", "dt3").as("dt3").
+                    // 添加 Hive 顶点
+                    addV("hive").property("id", "hive1").as("hive1").addV("hive").property("id", "hive2").as("hive2")
+                    .addV("hive").property("id", "hive3").as("hive3").addV("hive").property("id", "hive4").as("hive4")
+                    .addV("hive").property("id", "hive5").as("hive5").addV("hive").property("id", "hive6").as("hive6")
+                    .addV("hive").property("id", "hive7").as("hive7").addV("hive").property("id", "hive8").as("hive8")
+                    .addV("hive").property("id", "hive9").as("hive9").addV("hive").property("id", "hive10").as("hive10")
+                    .addV("hive").property("id", "hive11").as("hive11").addV("hive").property("id", "hive12")
+                    .as("hive12").addV("hive").property("id", "hive13").as("hive13").addV("hive")
+                    .property("id", "hive14").as("hive14").addV("hive").property("id", "hive15").as("hive15")
+                    .addV("hive").property("id", "hive16").as("hive16").addV("hive").property("id", "hive17")
+                    .as("hive17").
+                    // 添加 Metric 顶点
+                    addV("metric").property("id", "metric1").as("metric1").addV("metric").property("id", "metric2")
+                    .as("metric2").addV("metric").property("id", "metric3").as("metric3").addV("metric")
+                    .property("id", "metric4").as("metric4").
+
+                    // 添加边：路径1 (dt1 -> hive1 -> hive2 -> hive3 -> hive4 -> hive5 -> metric1)
+                    addE("dt_2_hive").from("dt1").to("hive1").addE("hive_2_hive").from("hive1").to("hive2")
+                    .addE("hive_2_hive").from("hive2").to("hive3").addE("hive_2_hive").from("hive3").to("hive4")
+                    .addE("hive_2_hive").from("hive4").to("hive5").addE("hive_2_metric").from("hive5").to("metric1").
+                    // 添加边：路径2 (dt1 -> hive1 -> hive6 -> hive7 -> hive8 -> metric1)
+                    addE("hive_2_hive").from("hive1").to("hive6").addE("hive_2_hive").from("hive6").to("hive7")
+                    .addE("hive_2_hive").from("hive7").to("hive8").addE("hive_2_metric").from("hive8").to("metric2").
+                    // 添加边：路径3 (dt2 -> hive9 -> hive10 -> hive11 -> metric3)
+                    addE("dt_2_hive").from("dt2").to("hive9").addE("hive_2_hive").from("hive9").to("hive10")
+                    .addE("hive_2_hive").from("hive10").to("hive11").addE("hive_2_metric").from("hive11").to("metric3").
+                    // 添加边：路径3 (dt3 -> hive12 -> hive13 -> hive11 -> metric3)
+                    addE("dt_2_hive").from("dt3").to("hive12").addE("hive_2_hive").from("hive12").to("hive13")
+                    .addE("hive_2_hive").from("hive13").to("hive11").
+                    // 添加边：路径4 (dt3 -> hive12 -> hive13 -> hive14 -> hive15)
+                    addE("hive_2_hive").from("hive13").to("hive14").addE("hive_2_hive").from("hive14").to("hive15").
+                    // 添加边：路径5 (hive16 -> hive17 -> metric4)
+                    addE("hive_2_hive").from("hive16").to("hive17").addE("hive_2_metric").from("hive17").to("metric4")
+                    .iterate();
+
+            System.out.println(g.E().elementMap().toList());
+            ;
         } finally {
             // 关闭连接
             cluster.close();

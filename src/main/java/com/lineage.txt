@@ -69,3 +69,8 @@ g.addV('dt').property('id', 'dt1').as('dt1').
   addE('hive_2_hive').from('hive16').to('hive17').
   addE('hive_2_metric').from('hive17').to('metric4').
   iterate()
+
+
+
+
+  
