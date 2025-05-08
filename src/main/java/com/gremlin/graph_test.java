@@ -3,13 +3,7 @@ package com.gremlin;
 import org.apache.tinkerpop.gremlin.driver.Cluster;
 import org.apache.tinkerpop.gremlin.driver.remote.DriverRemoteConnection;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
-import org.apache.tinkerpop.gremlin.structure.Vertex;
-
 import static org.apache.tinkerpop.gremlin.process.traversal.AnonymousTraversalSource.traversal;
-
-import java.util.List;
-
-import java.util.Map;
 
 public class graph_test {
     public static void main(String[] args) {
@@ -55,7 +49,7 @@ public class graph_test {
                     .addE("hive_2_hive").from("hive10").to("hive11").addE("hive_2_metric").from("hive11").to("metric3").
                     // 添加边：路径3 (dt3 -> hive12 -> hive13 -> hive11 -> metric3)
                     addE("dt_2_hive").from("dt3").to("hive12").addE("hive_2_hive").from("hive12").to("hive13")
-                    .addE("hive_2_hive").from("hive13").to("hive11").
+                    .addE("hive_2_hive").from("hive14").to("hive11").
                     // 添加边：路径4 (dt3 -> hive12 -> hive13 -> hive14 -> hive15)
                     addE("hive_2_hive").from("hive13").to("hive14").addE("hive_2_hive").from("hive14").to("hive15").
                     // 添加边：路径5 (hive16 -> hive17 -> metric4)
@@ -63,6 +57,8 @@ public class graph_test {
                     .iterate();
 
             System.out.println(g.E().elementMap().toList());
+            System.out.println("**********************");
+            System.out.println(g.V().valueMap().toList());
             ;
         } finally {
             // 关闭连接
